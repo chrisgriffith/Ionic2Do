@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { NavController, ItemSliding } from 'ionic-angular';
 import { Task } from './task';
-import { Dialogs } from 'ionic-native';
+import { Dialogs } from '@ionic-native/dialogs';
 
 @Component({
   selector: 'page-tasklist',
@@ -11,12 +11,12 @@ import { Dialogs } from 'ionic-native';
 export class TaskListPage {
   tasks: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController, public af: AngularFire) {
+  constructor(public navCtrl: NavController, public af: AngularFire, public dialogs: Dialogs) {
     this.tasks = af.database.list('/tasks');
   }
 
   addItem() {
-    Dialogs.prompt('Add a task', 'Ionic2Do', ['Ok', 'Cancel'], '').then(
+    this.dialogs.prompt('Add a task', 'Ionic2Do', ['Ok', 'Cancel'], '').then(
       theResult => {
         if ((theResult.buttonIndex == 1) && (theResult.input1 !== '')) {
           this.tasks.push({ title: theResult.input1, status: 'open' });
