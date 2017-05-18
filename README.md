@@ -9,5 +9,8 @@ This is a starter template for the Ionic2Do app from [Mobile App Development wit
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start Ionic2Do https://github.com/chrisgriffith/Ionic2Do --v2
+$ ionic start Ionic2Do https://github.com/chrisgriffith/Ionic2Do 
+$ cd Ionic2Do
+$ npm install
 ```
+Note: There are additional steps outlined in the book that need to be followed in order for this final version of the app to work.
