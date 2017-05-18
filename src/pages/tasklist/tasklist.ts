@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
 import { NavController, ItemSliding } from 'ionic-angular';
 import { Task } from './task';
 import { Dialogs } from '@ionic-native/dialogs';
@@ -11,8 +11,8 @@ import { Dialogs } from '@ionic-native/dialogs';
 export class TaskListPage {
   tasks: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController, public af: AngularFire, public dialogs: Dialogs) {
-    this.tasks = af.database.list('/tasks');
+  constructor(public navCtrl: NavController, public af: AngularFireDatabase, public dialogs: Dialogs) {
+    this.tasks = af.list('/tasks');
   }
 
   addItem() {
