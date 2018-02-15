@@ -10,8 +10,6 @@ import { Dialogs } from '@ionic-native/dialogs';
   templateUrl: 'tasklist.html'
 })
 export class TaskListPage {
-  //tasks: AngularFireList<Task>];
-  //tasks: Observable<any[]>;
   taskList: AngularFireList<Task>;
   tasks: Observable<any[]>;
 
